@@ -327,30 +327,46 @@ em { font-style: italic; color: var(--rose-deep); }
 }
 
 .scroll-cue {
-  position: absolute; bottom: var(--space-md); left: var(--space-md);
-  display: flex; align-items: center; justify-content: center;
+  position: absolute; bottom: var(--space-lg); left: var(--space-md);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
   color: var(--charcoal-70);
-  opacity: 0.8;
-  transition: opacity 300ms var(--ease), transform 300ms var(--ease), color 300ms var(--ease);
+  opacity: 0.85;
+  transition: opacity 300ms var(--ease), color 300ms var(--ease);
 }
-.scroll-cue:hover {
-  opacity: 1;
-  color: var(--rose-deep);
-  transform: translateY(3px);
+.scroll-cue:hover { opacity: 1; color: var(--rose-deep); }
+.scroll-cue__word {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
-.scroll-cue__dot {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: scrollcue 2.2s ease-in-out infinite;
+.scroll-cue__line {
+  position: relative;
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(to bottom, currentColor, transparent);
+  overflow: hidden;
+}
+.scroll-cue__line::after {
+  content: '';
+  position: absolute;
+  top: -8px; left: 50%;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--rose-deep);
+  transform: translateX(-50%);
+  animation: scrollcue 2.4s ease-in-out infinite;
 }
 @keyframes scrollcue {
-  0%   { transform: translateY(0); opacity: 0; }
-  20%  { opacity: 1; }
-  75%  { transform: translateY(11px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0; }
+  0%   { top: -8px; opacity: 0; }
+  25%  { opacity: 1; }
+  85%  { top: 40px; opacity: 0; }
+  100% { top: -8px; opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-cue__dot { animation: none; opacity: 1; }
+  .scroll-cue__line::after { animation: none; opacity: 1; top: 16px; }
 }
 
 /* ============ SOBRE ============ */
