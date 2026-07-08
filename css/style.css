@@ -226,7 +226,6 @@ em { font-style: italic; color: var(--rose-deep); }
   justify-content: center;
   padding: calc(var(--space-xl) + 3rem) var(--space-md) var(--space-lg);
   overflow: hidden;
-  perspective: 1200px;
 }
 .hero__inner {
   width: 100%;
@@ -236,6 +235,7 @@ em { font-style: italic; color: var(--rose-deep); }
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: var(--space-lg);
+  perspective: 1200px;
 }
 .hero__bg {
   position: absolute; inset: 0; z-index: -1;
