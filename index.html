@@ -57,7 +57,10 @@
         </div>
       </div>
       <div class="hero__portrait reveal">
-        <img src="assets/images/hero-portrait-master-4k.png" alt="Madu, especialista em unhas">
+        <picture>
+          <source media="(max-width: 900px)" srcset="assets/images/hero-portrait.jpg">
+          <img src="assets/images/hero-portrait-master-4k.png" alt="Madu, especialista em unhas">
+        </picture>
         <div class="hero__ribbon">feito à mão, com precisão</div>
       </div>
     </div>
@@ -68,7 +71,10 @@
   <section class="section sobre" id="sobre">
     <div class="section__inner sobre__grid">
       <div class="sobre__img reveal">
-        <img src="assets/images/nails-detail-4k.png" alt="Detalhe de trabalho em unhas">
+        <picture>
+          <source media="(max-width: 900px)" srcset="assets/images/nails-detail-mobile.jpg">
+          <img src="assets/images/nails-detail-4k.png" alt="Detalhe de trabalho em unhas" loading="lazy">
+        </picture>
       </div>
       <div class="sobre__text">
         <p class="ornament reveal"><span></span></p>
@@ -322,6 +328,6 @@
   </div>
 </div>
 
-<script src="js/script.js?v=3"></script>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>

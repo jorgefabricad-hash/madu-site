@@ -53,15 +53,15 @@ if (!prefersReducedMotion && !isTouch) {
 
   // Hero portrait parallax tilt
   const portrait = document.querySelector('.hero__portrait');
-  const hero = document.querySelector('.hero');
-  if (portrait && hero) {
-    hero.addEventListener('mousemove', (e) => {
-      const r = hero.getBoundingClientRect();
+  const heroInner = document.querySelector('.hero__inner');
+  if (portrait && heroInner) {
+    heroInner.addEventListener('mousemove', (e) => {
+      const r = heroInner.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;
       portrait.style.transform = `rotateY(${px * 8}deg) rotateX(${-py * 8}deg)`;
     });
-    hero.addEventListener('mouseleave', () => { portrait.style.transform = ''; });
+    heroInner.addEventListener('mouseleave', () => { portrait.style.transform = ''; });
   }
 }
 
