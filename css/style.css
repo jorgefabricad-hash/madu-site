@@ -328,17 +328,29 @@ em { font-style: italic; color: var(--rose-deep); }
 
 .scroll-cue {
   position: absolute; bottom: var(--space-md); left: var(--space-md);
-  width: 26px; height: 42px; border: 1.5px solid var(--charcoal-70); border-radius: 100px;
-  display: flex; justify-content: center; padding-top: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--charcoal-70);
+  opacity: 0.8;
+  transition: opacity 300ms var(--ease), transform 300ms var(--ease), color 300ms var(--ease);
 }
-.scroll-cue span {
-  width: 4px; height: 4px; border-radius: 50%; background: var(--rose-deep);
-  animation: scrollcue 1.8s ease-in-out infinite;
+.scroll-cue:hover {
+  opacity: 1;
+  color: var(--rose-deep);
+  transform: translateY(3px);
+}
+.scroll-cue__dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: scrollcue 2.2s ease-in-out infinite;
 }
 @keyframes scrollcue {
-  0% { transform: translateY(0); opacity: 1; }
-  70% { transform: translateY(14px); opacity: 0; }
-  100% { opacity: 0; }
+  0%   { transform: translateY(0); opacity: 0; }
+  20%  { opacity: 1; }
+  75%  { transform: translateY(11px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue__dot { animation: none; opacity: 1; }
 }
 
 /* ============ SOBRE ============ */
